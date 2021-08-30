@@ -1,0 +1,102 @@
+%==============================================================================
+%	Author: Boris Popoff
+%               D. Dimitrova
+%		August 2004
+%	small but usefull
+%==============================================================================
+\ProvidesPackage{ccmtex}
+
+\newcommand{\diff} {\mathrm d}
+\newcommand{\pdiff} {\partial}
+\newcommand{\pderiv}[2] {\frac{\pdiff #1}{\pdiff #2}}
+\newcommand{\deriv}[2] {\frac{\diff #1}{\diff #2}}
+\newcommand{\divgnce} {\mathrm{div}}
+\newcommand{\grad} {\mathrm{grad}}
+\newcommand{\tensor}[1] {\mathbf{#1}}
+\newcommand{\limes}[3] {\lim\limits _{#2\rightarrow #3} #1}
+\newcommand{\myeqnarray}[2]{\begin{align} \label{#1} #2 \end{align}}
+\newcommand{\myeqar}[2] {\myeqnarray{#1}{#2}}
+\newcommand{\myequation}[2]{\begin{equation} \label{#1} #2 \end{equation}}
+\newcommand{\myeq}[2] {\myequation{#1}{#2}}
+\newcommand{\Maple}{\textsf{Maple}\xspace}
+\newcommand{\Fluent}{\textsf{FLUENT}\xspace}
+%\newcommand{\Fluent} {{\bf FLUENT }}
+\newcommand{\CFX} {{\bf CFX }}
+\newcommand{\MyCp}{Copyright 2011 Boris Popoff}
+
+%-------------------------------------------------------------------------------
+% simpler referencing
+%-------------------------------------------------------------------------------
+\newcommand{\eqnref}[1]{(\ref{#1})}
+\newcommand{\eqn}[1]{Equation (\ref{#1})}
+\newcommand{\fig}[1]{Figure \ref{#1}}
+\newcommand{\sect}[1]{Section \ref{#1}}
+\newcommand{\tab}[1]{Table \ref{#1}}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+
+%-------------------------------------------------------------------------------
+% for easier change of the filtering symbol
+%-------------------------------------------------------------------------------
+\newcommand{\ol}{\overline}
+\newcommand{\rhofilt}{\overline{\rho}}
+\newcommand{\wt}{\widetilde}
+\newcommand{\wh}{\widehat}
+\newcommand{\rhoavrg}{\widehat{\rho}}
+\newcommand{\llan}{\left\langle}
+\newcommand{\rran}{\right\rangle}
+
+%-------------------------------------------------------------------------------
+% often used expresions 
+%-------------------------------------------------------------------------------
+\newcommand{\NSE}{\textsc{Navier-Stokes} equations }
+\newcommand{\LES}{large-eddy simulation }
+\newcommand{\keps}{$k-\varepsilon$ }
+\newcommand{\st}{\textsc{Stokes }}
+\newcommand{\lag}{\textsc{Lagrangian }}
+\newcommand{\euler}{\textsc{Eulerian }}
+\newcommand{\renum}{\textsc{Reynolds }}
+\newcommand{\bc}{boundary condition }
+\newcommand{\mpf}{multiphase flow }
+\newcommand{\tpf}{two-phase flow }
+\newcommand{\stw}{streamwise }
+\newcommand{\spw}{spanwise }
+\newcommand{\wn}{wall-normal }
+\newcommand{\sml}{simulation }
+\newcommand{\smls}{simulations }
+\newcommand{\lore}{low \textsc{Reynolds} number }
+\newcommand{\hire}{high \textsc{Reynolds} number }
+\newcommand{\sgs}{sub-grid stress }
+
+%-------------------------------------------------------------------------------
+% pressure correction in CFD
+%-------------------------------------------------------------------------------
+\newcommand{\pprime}{p^\prime}
+\newcommand{\uprime}{\vec{u}^\prime}
+\newcommand{\usprime}{u^\prime}
+\newcommand{\vprime}{v^\prime}
+\newcommand{\wprime}{w^\prime}
+
+%-------------------------------------------------------------------------------
+% graphics for pdf/dvi output
+%-------------------------------------------------------------------------------
+\usepackage{ifpdf}
+
+\ifpdf
+\usepackage[pdftex]{graphicx}
+\DeclareGraphicsExtensions{.jpg,.pdf,.mps,.png}
+\pdfcompresslevel=9
+\else
+\usepackage[dvips]{graphicx}
+\DeclareGraphicsExtensions{.eps,.ps}
+\usepackage[dvips]{color}
+\fi
+
+\ifpdf
+\usepackage[pdftex]{hyperref}
+\pdfadjustspacing=2
+\pdfprotrudechars=2
+\pdfmovechars=0
+\else
+\usepackage[pdftex]{hyperref}
+\fi
